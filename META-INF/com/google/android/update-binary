@@ -1,0 +1,53 @@
+#!/sbin/sh
+
+#################
+# Initialization
+#################
+
+umask 022
+
+# echo before loading util_functions
+ui_print() { echo "$1"; }
+
+require_root_manager() {
+  ui_print "********************************************************"
+  ui_print "! Compatible Root Manager required (Magisk/KSU/APatch/MKSU/SukiSU)"
+  ui_print "********************************************************"
+  exit 1
+}
+
+#########################
+# Load util_functions.sh
+#########################
+
+OUTFD=$2
+ZIPFILE=$3
+
+mount /data 2>/dev/null
+
+UTIL_FUNCTIONS=""
+for p in \
+  /data/adb/magisk/util_functions.sh \
+  /data/adb/ksu/util_functions.sh \
+  /data/adb/ap/util_functions.sh \
+  /data/adb/mksu/util_functions.sh \
+  /data/adb/sukisu/util_functions.sh \
+  /data/adb/util_functions.sh \
+  /sbin/util_functions.sh \
+  /data/util_functions.sh \
+  /tmp/util_functions.sh; do
+    if [ -f "$p" ]; then
+        UTIL_FUNCTIONS="$p"
+        break
+    fi
+done
+
+if [ -n "$UTIL_FUNCTIONS" ]; then
+    . "$UTIL_FUNCTIONS"
+    [ "$MAGISK_VER_CODE" ] && [ "$MAGISK_VER_CODE" -lt 20400 ] && require_root_manager
+else
+    require_root_manager
+fi
+
+install_module
+exit 0

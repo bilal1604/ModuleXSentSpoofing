@@ -1,0 +1,53 @@
+# XSent Spoof default config - v1.0
+# Active Identity profile properties will be written to:
+# /data/adb/xsent-spoof/system.prop
+
+persist.sys.xsent.hide_root=on
+persist.sys.xsent.global_prop_spoof=on
+persist.sys.xsent.system_sync_mode=on
+persist.sys.xsent.spoof_build=on
+persist.sys.xsent.spoof_os=on
+persist.sys.xsent.spoof_serial=on
+persist.sys.xsent.spoof_imei=on
+persist.sys.xsent.spoof_device_id=on
+persist.sys.xsent.spoof_adb=on
+persist.sys.xsent.spoof_dev_opts=on
+persist.sys.xsent.headless_dev_mode=off
+persist.sys.xsent.spoof_wifi_ssid=off
+persist.sys.xsent.spoof_wifi_bssid=off
+persist.sys.xsent.spoof_nearby_wifi=off
+persist.sys.xsent.spoof_timezone_ip=off
+persist.sys.xsent.block_lan_scan=off
+persist.sys.xsent.full_browser_fingerprint=off
+persist.sys.xsent.spoof_installer_source=off
+persist.sys.xsent.spoof_package_identity=off
+persist.sys.xsent.spoof_realistic_sensors=off
+persist.sys.xsent.spoof_device_uptime=off
+persist.sys.xsent.per_profile_proxy=off
+persist.sys.xsent.dual_panel_files=off
+persist.sys.xsent.auto_lsposed_scope=on
+persist.sys.xsent.hide_suspicious_keyboards=off
+persist.sys.xsent.virtual_default_keyboard=off
+persist.sys.xsent.clipboard_protection=off
+persist.sys.xsent.screenshot_unlock=off
+persist.sys.xsent.spoof_nearby_bluetooth=off
+persist.sys.xsent.hide_vpn=off
+persist.sys.xsent.hide_proxy=off
+persist.sys.xsent.hide_airplane=off
+persist.sys.xsent.spoof_selinux=on
+persist.sys.xsent.strict_env_cloak=on
+persist.sys.xsent.safe_test_mode=off
+# Global verified-boot/lock-state spoofing. OFF by default: a global spoof
+# crashes Tencent SOTER on KernelSU/APatch. Target apps still get spoofed
+# boot state per-process via the XSent hook. Set to "on" only if a specific
+# app needs a global value and you accept the SOTER risk.
+persist.sys.xsent.spoof_verified_boot=off
+persist.sys.xsent.auto_keybox_sync=off
+persist.sys.xsent.keybox_source=local
+persist.sys.xsent.manage_play_integrity=off
+
+persist.sys.xsent.spoof_location=off
+persist.sys.xsent.location.lat=0.0
+persist.sys.xsent.location.lng=0.0
+persist.sys.xsent.identity.installer_package=com.android.vending
+persist.sys.xsent.identity.sim_country=id
